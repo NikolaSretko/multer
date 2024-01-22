@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../components/shared/Header/Header';
 
 const Admin = () => {
-    // useState-Hooks zur Verwaltung des Formularzustands
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [file, setFile] = useState(null);
@@ -54,11 +53,8 @@ const Admin = () => {
     return (
         <div className="container mx-auto p-4">
             <Header/>
-            {/* Anzeige einer Nachricht nach dem Absenden */}
             {message && <p className="text-green-500">{message}</p>}
-            {/* Formular zum Erstellen eines neuen Posts */}
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                {/* Titelfeld */}
                 <div className="mb-4">
                     <input
                         type="text"
@@ -68,7 +64,6 @@ const Admin = () => {
                         disabled={isSubmitting}
                     />
                 </div>
-                {/* Kategoriefeld */}
                 <div className="mb-4">
                     <select
                         value={category}
@@ -76,13 +71,11 @@ const Admin = () => {
                         disabled={isSubmitting}
                     >
                         <option value="" disabled>{isSubmitting ? "" : "Category"}</option>
-                        {/* Optionen für Kategorien */}
                         <option value="urlaub">Urlaub</option>
                         <option value="arbeit">Arbeit</option>
                         <option value="freizeit">Freizeit</option>
                     </select>
                 </div>
-                {/* Inhaltfeld */}
                 <div className="mb-6">
                     <textarea
                         value={content}
@@ -91,7 +84,6 @@ const Admin = () => {
                         disabled={isSubmitting}
                     ></textarea>
                 </div>
-                {/* Dateiupload-Feld */}
                 <div className="mb-6">
                     <input
                         type="file"
@@ -99,7 +91,6 @@ const Admin = () => {
                         disabled={isSubmitting}
                     />
                 </div>
-                {/* Absende-Button */}
                 <div className="flex items-center justify-between">
                     <button
                         type="submit"

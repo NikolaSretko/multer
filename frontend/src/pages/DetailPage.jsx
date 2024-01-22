@@ -4,7 +4,6 @@ import Header from "../components/shared/Header/Header";
 import Footer from "../components/shared/Footer/Footer";
 
 const DetailPage = () => {
-    // useState-Hook für die Verwaltung des Zustands des aktuellen Posts
     const [post, setPost] = useState(null);
     // useParams-Hook, um die ID aus der URL zu extrahieren
     const { id } = useParams();
@@ -30,28 +29,20 @@ const DetailPage = () => {
     const fullImageUrl = `http://localhost:3001${post.imageUrl}`;
 
     return (
-        // Hauptstruktur der Detailseite
         <main className="bg-gray-100">
-            {/* Header-Komponente */}
             <Header />
-            {/* Bildbereich des Posts */}
             <div className="h-64 w-full overflow-hidden">
                 <img className="object-cover w-full h-full" src={fullImageUrl} alt={post.title} />
             </div>
-            {/* Inhalt des Posts */}
             <div className="max-w-4xl mx-auto p-6">
-                {/* Titel des Posts */}
                 <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-                {/* Kategorie des Posts */}
                 <h2 className="text-3xl">
                     {post.category}
                 </h2>
-                {/* Textinhalt des Posts */}
                 <p className="text-gray-700 text-base">
                     {post.content}
                 </p>
             </div>
-            {/* Footer-Komponente */}
             <Footer />
         </main>
     );

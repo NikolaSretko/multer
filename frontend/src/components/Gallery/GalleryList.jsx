@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import GalleryItem from "./GalleryItem";
 
 const GalleryList = () => {
-    // useState-Hooks für die Verwaltung des Zustands der Posts, des Suchbegriffs und der Kategorie
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState('');
 
-    // useEffect-Hook, um Posts beim ersten Rendern der Komponente zu laden
     useEffect(() => {
         fetchPosts();
     }, []);
@@ -34,7 +32,6 @@ const GalleryList = () => {
     };
 
     return ( 
-        // Hauptcontainer für die Galerie
         <section className="container mx-auto p-4">
             {/* Suchfeld */}
             <div className="mb-4">
@@ -46,7 +43,6 @@ const GalleryList = () => {
                 />
                 <button onClick={handleSearch}>Suchen</button>
             </div>
-            {/* Dropdown-Menü für Kategorien */}
             <div className="mb-4">
                 <select 
                     value={category} 
@@ -58,7 +54,6 @@ const GalleryList = () => {
                     <option value="freizeit">Freizeit</option>
                 </select>
             </div>
-            {/* Anzeige der Posts in einem responsiven Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {posts.map(post => (
                     <GalleryItem key={post.id} {...post} />
